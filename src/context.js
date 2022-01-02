@@ -7,11 +7,27 @@ const ProductContext = React.createContext({
  //consumer
 })
 
+
+// min 2:35 to 2:47 => to get the new set up values instead of copying them, not just reference them. Good when you want to get the original values and not the modifies one 
 class ProductProvider extends Component {
  state = {
-  products: storeProducts,
+  products: [],
   detailProduct: detailProduct
  }
+ componentDidMount() {
+  this.setProducts();
+ }
+ setProducts = () => {
+  let tempProducts = [];
+  storeProducts.forEach(item => {
+   const singleItem = { ...item };
+   tempProducts = [...tempProducts, singleItem];
+  })
+  this.setState(() => {
+   return { products: tempProducts }
+  })
+ }
+
 
  handleDetail = () => {
   console.log("hello from detail");

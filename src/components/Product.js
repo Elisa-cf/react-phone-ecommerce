@@ -29,6 +29,7 @@ export default class Product extends Component {
 }
 
 //PropTypes:from min 2:28 to 2:35
+//Product first because is the name of the file
 Product.propTypes = {
  product: PropTypes.shape({
   id: PropTypes.number,
