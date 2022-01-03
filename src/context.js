@@ -12,7 +12,9 @@ class ProductProvider extends Component {
  state = {
   products: [], //values of the object
   detailProduct: detailProduct, //object reference
-  cart: []
+  cart: [],
+  modalOpen: true,
+  modalProduct: detailProduct,
  }
  componentDidMount() {
   this.setProducts();
@@ -41,6 +43,8 @@ getItem = (id) => {
   })
   // console.log("hello from detail");
  }
+
+
  addToCart = (id) => {
   let tempProducts = [...this.state.products];
   const index = tempProducts.indexOf(this.getItem(id));
@@ -56,6 +60,22 @@ getItem = (id) => {
   // console.log(`Hello from add to cart. The id is ${id}`);
  }
 
+//MODAL
+
+openModal = id => {
+const product = this.getItem(id);
+this.setState(()=>{
+ return{modalProduct: product, modalOpen: true}
+})
+}
+closeModal = () => {
+this.setState(() => {
+ return{modelOpen: false}
+})
+
+//
+
+}
  render() {
   return (
    <div>
@@ -63,7 +83,10 @@ getItem = (id) => {
      //destrucuring it will be easier:
      ...this.state,
      handleDetail: this.handleDetail,
-     addToCart: this.addToCart
+     addToCart: this.addToCart,
+     openModal: this.openModal,
+     closeModal: this.closeModal
+
      // products: this.state.products, detailProduct: this.state.detailProduct
     }}>
      {/* return all the children that they gonna be within this component */}
