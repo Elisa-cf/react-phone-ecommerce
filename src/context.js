@@ -7,13 +7,12 @@ const ProductContext = React.createContext({
  //consumer
 })
 
-
-// min 2:35 to 2:47 => to get the new set up values instead of copying them, not just reference them. Good when you want to get the original values and not the modifies one. 
-
+//SET UP VALUES:
 class ProductProvider extends Component {
  state = {
   products: [], //values of the object
-  detailProduct: detailProduct //object reference
+  detailProduct: detailProduct, //object reference
+  cart: []
  }
  componentDidMount() {
   this.setProducts();
@@ -29,12 +28,32 @@ class ProductProvider extends Component {
   })
  }
 
+//GETTING THE ITEM ACCORDING TO THE ID:
+getItem = (id) => {
+ const product = this.state.products.find(item => item.id === id);
+ return product;
+}
 
- handleDetail = () => {
-  console.log("hello from detail");
+ handleDetail = (id) => {
+  const product = this.getItem(id);
+  this.setState(()=>{
+   return {detailProduct:product}
+  })
+  // console.log("hello from detail");
  }
  addToCart = (id) => {
-  console.log(`Hello from add to cart. The id is ${id}`);
+  let tempProducts = [...this.state.products];
+  const index = tempProducts.indexOf(this.getItem(id));
+ const product = tempProducts[index];
+ product.inCart = true;
+ product.count = 1;
+ const price = product.price;
+ product.total = price;
+ this.setState(() => {
+  return {products: tempProducts, cart:[...this.state.cart, product]}
+ },() =>{console.log(this.state);} )
+
+  // console.log(`Hello from add to cart. The id is ${id}`);
  }
 
  render() {
