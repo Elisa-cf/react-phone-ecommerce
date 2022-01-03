@@ -1,3 +1,5 @@
+// from 2:47 to 3:09 https://www.youtube.com/watch?v=-edmQKcOW8s
+
 import React, { Component } from 'react'
 import {ProductConsumer} from '../context'
 import { Link } from 'react-router-dom'
@@ -36,7 +38,9 @@ export default class Details extends Component {
          {/* buttons */}
          <div>
          <Link to='/'><ButtonContainer>Back To Products</ButtonContainer></Link>
-         <ButtonContainer disabled={inCart ? true : false} onClick={() =>{value.addToCart(id)}}>{inCart ? "In Cart" : "Add to Cart"}</ButtonContainer>
+         <ButtonContainer 
+         cart
+         disabled={inCart ? true : false} onClick={() =>{value.addToCart(id)}}>{inCart ? "In Cart" : "Add to Cart"}</ButtonContainer>
          </div>
         </div>
        </div>
