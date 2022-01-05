@@ -74,7 +74,7 @@ closeModal = () => {
 this.setState(() => {
  return{modalOpen: false}
 })
-
+ }
 //
 
 //placeholders/ cart methods
@@ -87,11 +87,11 @@ decrement = (id) =>
 
 removeItem =  (id) => {console.log('item removed');}
 
-clearCart = (id) => {
+clearCart = () => {
 console.log("all cart was cleared");
 }
 
-}
+
  render() {
   return (
    <div>
@@ -104,7 +104,7 @@ console.log("all cart was cleared");
      closeModal: this.closeModal,
      increment: this.increment,
      decrement: this.decrement,
-     removeItem:this.removeItem,
+     removeItem: this.removeItem,
      clearCart: this.clearCart
      // products: this.state.products, detailProduct: this.state.detailProduct
     }}>
