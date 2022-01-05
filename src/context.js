@@ -13,7 +13,7 @@ class ProductProvider extends Component {
   products: [], //values of the object
   detailProduct: detailProduct, //object reference
   cart: [],
-  modalOpen: true,
+  modalOpen: false,
   modalProduct: detailProduct,
  }
  componentDidMount() {
@@ -70,7 +70,7 @@ this.setState(()=>{
 }
 closeModal = () => {
 this.setState(() => {
- return{modelOpen: false}
+ return{modalOpen: false}
 })
 
 //
