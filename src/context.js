@@ -15,6 +15,9 @@ class ProductProvider extends Component {
   cart: [],
   modalOpen: false,
   modalProduct: detailProduct,
+  cartSubTotal: 0,
+  cartTax: 0,
+  cartTotal: 0,
  }
  componentDidMount() {
   this.setProducts();
@@ -43,7 +46,6 @@ getItem = (id) => {
   })
   // console.log("hello from detail");
  }
-
 
  addToCart = (id) => {
   let tempProducts = [...this.state.products];
@@ -75,6 +77,20 @@ this.setState(() => {
 
 //
 
+//placeholders/ cart methods
+
+increment = (id) => 
+{console.log('this is increment method');}
+
+decrement = (id) =>
+{console.log('this is decrement method');}
+
+removeItem =  (id) => {console.log('item removed');}
+
+clearCart = (id) => {
+console.log("all cart was cleared");
+}
+
 }
  render() {
   return (
@@ -85,8 +101,11 @@ this.setState(() => {
      handleDetail: this.handleDetail,
      addToCart: this.addToCart,
      openModal: this.openModal,
-     closeModal: this.closeModal
-
+     closeModal: this.closeModal,
+     increment: this.increment,
+     decrement: this.decrement,
+     removeItem:this.removeItem,
+     clearCart: this.clearCart
      // products: this.state.products, detailProduct: this.state.detailProduct
     }}>
      {/* return all the children that they gonna be within this component */}
