@@ -57,7 +57,7 @@ getItem = (id) => {
  product.total = price;
  this.setState(() => {
   return {products: tempProducts, cart:[...this.state.cart, product]}
- },() =>{console.log(this.state);} )
+ },() =>{this.addTotals();} )
 
   // console.log(`Hello from add to cart. The id is ${id}`);
  }
@@ -77,7 +77,7 @@ this.setState(() => {
  }
 //
 
-//placeholders/ cart methods
+//placeholders/ cart methods for buttons
 
 increment = (id) => 
 {console.log('this is increment method');}
@@ -89,6 +89,21 @@ removeItem =  (id) => {console.log('item removed');}
 
 clearCart = () => {
 console.log("all cart was cleared");
+}
+
+
+//logic/methods for cartsubtotal, tax and total in cartTotals: 
+addTotals = () => {
+ let subTotal = 0;
+ this.state.cart.map(item => (subTotal += item.total));
+ const tempTax = subTotal * 0.1;
+ const tax = parseFloat(tempTax.toFixed(2));
+ const total = subTotal + tax;
+ this.setState(() =>{return {
+  cartSubTotal: subTotal,
+  cartTax: tax,
+  cartTotal: total
+ }})
 }
 
 
