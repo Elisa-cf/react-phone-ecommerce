@@ -87,9 +87,16 @@ decrement = (id) =>
 
 removeItem =  (id) => {console.log('item removed');}
 
-clearCart = () => {
-console.log("all cart was cleared");
-}
+ clearCart = () => {
+  this.setState(() => {
+   return {
+    cart: []}
+   }, ()=> {
+    this.setProducts();
+    this.addTotals();
+   })
+};
+
 
 
 //logic/methods for cartsubtotal, tax and total in cartTotals: 
