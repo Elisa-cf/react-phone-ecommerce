@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const CartTotals = (value) => {
+const CartTotals = ({value}) => {
  const{cartSubTotal, cartTax, cartTotal, clearCart} = value;
    return (
    <React.Fragment>
      <div className="container">
       <div className="row">
-       <div className="col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-capitalize text-center">
+       <div className="col-10 mt-2 ml-sm-5 mx-auto col-sm-8 text-capitalize text-center p-5">
         <Link to="/">
          <button
           className="btn btn-outline-danger text-uppercase mb-3 px-5"

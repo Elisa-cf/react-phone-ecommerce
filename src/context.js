@@ -120,7 +120,8 @@ addTotals = () => {
      increment: this.increment,
      decrement: this.decrement,
      removeItem: this.removeItem,
-     clearCart: this.clearCart
+     clearCart: this.clearCart,
+     addTotals: this.addTotals
      // products: this.state.products, detailProduct: this.state.detailProduct
     }}>
      {/* return all the children that they gonna be within this component */}
