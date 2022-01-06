@@ -3,6 +3,7 @@ import CartItem from './CartItem'
 
 const CartList = ({value}) => {
  const {cart} = value;
+ //other way around: value.cart.map.. without the destructuring
  // console.log(value, cart);
  return (
   <div className='container-fluid'>
@@ -16,4 +17,3 @@ const CartList = ({value}) => {
 
 export default CartList
 
-//other way around: value.cart.map.. without the destructuring
